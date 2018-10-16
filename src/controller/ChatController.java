@@ -6,7 +6,7 @@ import model.Chatbot;
 
 public class ChatController
 {
-//	private Chatbot simpleBot;
+	private Chatbot simpleBot;
 	
 	
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
@@ -14,7 +14,7 @@ public class ChatController
 	
 	public ChatController()
 	{
-//		simpleBot = new Chatbot();
+		simpleBot = new Chatbot();
 	}
 	
 	
@@ -37,9 +37,13 @@ public class ChatController
 	
 	public String interactWithChatbot(String userInput)
 	{
-		return null;
+		String output = "";
+		String userResponse = JOptionPane.showInputDialog(null, "Hi whats up?");
+		output = simpleBot.processText(userResponse);
+		
+		return output;
 	}
 }
 
 
-//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\ 
