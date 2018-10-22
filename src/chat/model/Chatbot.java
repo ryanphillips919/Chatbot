@@ -44,6 +44,11 @@ public class Chatbot
 		responseList.add("Nice to meet you!");
 		responseList.add("Do you do crossfit");
 		responseList.add("Excuse me?");
+		responseList.add("Yeet");
+		responseList.add("Pretty pretty pretty good");
+		responseList.add("I am doing badly, how are you?");
+		
+		
 	}
 	
 	
@@ -77,7 +82,13 @@ public class Chatbot
 		
 		answer += "You said: " + userText;
 		
+		if (userText.length() > 0)
+		{
+			answer = "You did not enter anything";
+		}
+		
 		return answer;
+		
 	}
 	
 	
@@ -120,11 +131,6 @@ public class Chatbot
 	
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\	
 	
-	
-	public void setResponseList(ArrayList<String> responseList)
-	{
-		this.responseList = responseList;
-	}
 	
 	public void setContent(String content)
 	{
