@@ -43,7 +43,15 @@ public class ChatController
 		
 		return output;
 	}
-}
+
 
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\ 
+
+	public Chatbot getChatbot()
+	{
+		return simpleBot;
+	}
+	
+	
+}

@@ -113,6 +113,10 @@ public class Chatbot
 		return joke;
 	}
 	
+	public ArrayList<String> getSpookyList()
+	{
+		return spookyList;
+	}
 	
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\	
 	
