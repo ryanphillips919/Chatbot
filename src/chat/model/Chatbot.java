@@ -146,6 +146,37 @@ public class Chatbot
 	{
 		this.joke = joke;
 	}
+	
+	
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
+	
+	public boolean legitimacyChecker(String input)
+	{
+		boolean legit = true;
+		
+		if (input == null)
+		{
+			legit = false;
+		}
+		
+		else if (input.length() <= 1)
+		{
+			legit = false;
+		}
+		
+		else if (input.contains("sdf" || input.contains("jkl") || input.contains("cvb")))
+		{
+			legit = false;
+		}
+		
+		else
+		{
+			legit = true;
+		}
+		
+		return legit;
+	}
+	
 }
 
 
