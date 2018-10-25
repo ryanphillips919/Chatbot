@@ -23,14 +23,17 @@ public class ChatController
 	
 	public void start()
 	{
-		String userInput = JOptionPane.showInputDialog(null, "Chatbot says: Hello, how are you?");
-		JOptionPane.showMessageDialog(null,"You said: " + userInput);
-		while (!userInput.equalsIgnoreCase("quit"));
-		{
-			userInput = JOptionPane.showInputDialog(null, "Type quit if you are done");
-		}
+//		String userInput = JOptionPane.showInputDialog(null, "Chatbot says: Hello, how are you?");
+//		JOptionPane.showMessageDialog(null,"You said: " + userInput);
+//		while (!userInput.equalsIgnoreCase("quit"));
+//		{
+//			userInput = JOptionPane.showInputDialog(null, "Type quit if you are done");
+//		}
 		
-		interactWithChatbot(userInput);
+//		interactWithChatbot(userInput);
+		
+		JOptionPane.showMessageDialog(null, Chatbot.processText("What is the meaning of life?"));
+		
 	}
 	
 	
@@ -42,7 +45,6 @@ public class ChatController
 		int randomResponse = (int) (Math.random() * 16);
 		String output = "";
 		String userResponse = JOptionPane.showInputDialog(null, "Chatbot says: Hi whats up?");
-		output = simpleBot.processText(userResponse + "/n Chatbot says: " + responseList(randomResponse));
 		
 		
 		return output;
@@ -56,4 +58,8 @@ public class ChatController
 	{
 		return simpleBot;
 	}
+	
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
+	
+	
 }

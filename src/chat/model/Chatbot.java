@@ -2,6 +2,8 @@ package chat.model;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Chatbot
 {
 	private ArrayList<String> responseList;
@@ -76,15 +78,23 @@ public class Chatbot
 
 	
 	
-	public String processText(String userText)
+	public static String processText(String userText)
 	{
 		String answer = "";
 		
-		answer += "You said: " + userText;
-		
-		if (userText.length() > 0)
+		if (userText == null)
 		{
-			answer = "You did not enter anything";
+			answer = "You can't have a null answer!";
+		}
+		
+		else if (userText.length() < 0)
+		{
+			answer = "Chatbot says: You did not enter anything";
+		}
+		
+		else
+		{
+			answer = "You said: " + userText + System.lineSeparator() + "Chatbot says: something";
 		}
 		
 		return answer;
@@ -164,7 +174,7 @@ public class Chatbot
 			legit = false;
 		}
 		
-		else if (input.contains("sdf" || input.contains("jkl") || input.contains("cvb")))
+		else if ((input.contains("sdf") || input.contains("jkl") || input.contains("cvb")))
 		{
 			legit = false;
 		}
