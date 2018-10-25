@@ -190,7 +190,15 @@ public class Chatbot
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
 	
-	
+	public static boolean spookyChecker(String spook)
+	{
+		if (spook.equalsIgnoreCase("afraid"))
+		{
+		boolean legit = true;
+		}
+		
+		return legit;
+	}
 	
 	
 }
