@@ -46,7 +46,7 @@ public class ChabotTest
 		assertTrue("The text you supply should be prefixed with \"You said: \" ", testedBot.processText("").contains("You said: "));
 		assertTrue("The text you supply should be prefixed with \"You said: \" ", testedBot.processText(sampleText).contains("You said: "));
 		assertTrue("The text returned should indicate what the chatbot says with \"Chatbot says: \"", testedBot.processText(sampleText).contains("Chatbot says: "));
-		String response = testedBot.processText(sampleText);
+		String response = testedBot.processText(sampleText); 
 		assertTrue("The chatbot content should be after your content", response.indexOf("You said:") < response.indexOf("Chatbot says: "));
 	}
 
@@ -86,7 +86,7 @@ public class ChabotTest
 		assertFalse("The content after another word is NOT the special content", testedBot.contentChecker("text" + testedBot.getContent()));
 		assertFalse("The content in front of another word is NOT the special content", testedBot.contentChecker(testedBot.getContent() + "text"));
 		assertTrue("If the content is sent to the chatbot via process text it should be noted", testedBot.processText(testedBot.getContent()).contains("You said the special words"));
-	}
+	} 
  
 	@Test
 	public void testGetSpookyList()

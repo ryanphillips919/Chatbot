@@ -9,7 +9,7 @@ public class Chatbot
 	private ArrayList<String> responseList;
 	private ArrayList<String> spookyList;
 	
-	private String content;
+	private static String content;
 	private String currentUser;
 	private String joke;
 
@@ -20,7 +20,7 @@ public class Chatbot
 	public Chatbot()
 	{
 		this.joke = "What is red and smells like blue paint?";
-		this.content = new String("Yeet");
+		this.content = new String("memes");
 		this.currentUser = new String("Dave");
 		
 		this.responseList = new ArrayList<String>();
@@ -92,22 +92,29 @@ public class Chatbot
 	
 	public static String processText(String userText)
 	{
-		String answer = "";
+		String userResponse = "You said: ";
+		String chatbotResponse = "Chatbot says: ";
 		
 		if (userText == null)
 		{
-			answer = "You can't have a null answer!";
+			userResponse += "nothing";
+			chatbotResponse += "You can't enter null!";
 		}
 		
 		else if (userText.length() < 0)
 		{
-			answer = "Chatbot says: You did not enter anything";
+			userResponse += "nothing";
+			chatbotResponse += "You have to enter some text";
 		}
 		
-		else
+		else if(userText.contains(content))
 		{
-			answer = "You said: " + userText + System.lineSeparator() + "Chatbot says: something";
+			userResponse += userText;
+			userResponse += "You said the special words";
+			
 		}
+		
+		String answer = userResponse + System.lineSeparator() + chatbotResponse;
 		
 		return answer;
 		
@@ -223,7 +230,30 @@ public class Chatbot
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
 	
 	
-	public 
+	public static boolean contentChecker(String special)
+	{
+		boolean contains = false;
+		
+		if (special.contains(content))
+		{
+			if (special.equalsIgnoreCase(content))
+			{
+				contains = true;
+			}
+			
+			else if (special.contains(" " + content + " "))
+			{
+				contains = true;
+			}
+			
+			else
+			{
+				contains = false;
+			}
+		}
+		
+		return contains;
+	}
 	
 	
 }
