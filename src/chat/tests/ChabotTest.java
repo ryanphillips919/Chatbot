@@ -87,7 +87,7 @@ public class ChabotTest
 		assertFalse("The content in front of another word is NOT the special content", testedBot.contentChecker(testedBot.getContent() + "text"));
 		assertTrue("If the content is sent to the chatbot via process text it should be noted", testedBot.processText(testedBot.getContent()).contains("You said the special words"));
 	}
-
+ 
 	@Test
 	public void testGetSpookyList()
 	{

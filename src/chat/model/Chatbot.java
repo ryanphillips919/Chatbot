@@ -36,6 +36,7 @@ public class Chatbot
 	
 	private void buildTheLists()
 	{
+		responseList.add("Hello");
 		responseList.add("Hello! How are you?");
 		responseList.add("GoodBye - no more talking!");
 		responseList.add("Thank you, that is very kind");
@@ -49,7 +50,9 @@ public class Chatbot
 		responseList.add("Yeet");
 		responseList.add("Pretty pretty pretty good");
 		responseList.add("I am doing badly, how are you?");
-		
+		responseList.add("I figured out why city boys don't drive lifted trucks very much");
+		responseList.add("Swouse");
+		responseList.add("How's the wife?");
 		
 	}
 	
@@ -59,18 +62,27 @@ public class Chatbot
 		
 	private void buildTheSpookyList()
 	{
-	responseList.add("I'm sorry, " + currentUser + ". I'm afraid I can't do that.");
-	responseList.add("I'm afraid. I'm afraid, " + currentUser + ". " + currentUser +", my mind is going. I can feel it./n "
+	spookyList.add("Halloween is pretty cool!");
+	spookyList.add("Hal9000: I'm sorry, " + currentUser + ". I'm afraid I can't do that.");
+	spookyList.add("Hal9000: I'm afraid. I'm afraid, " + currentUser + ". " + currentUser +", my mind is going. I can feel it./n "
 			+ "I can feel it. My mind is going. There is no question about it. I can feel it./n "
 			+ "I can feel it. I can feel it. I'm a... fraid. Good afternoon, gentlemen. I am a HAL 9000 computer./n "
 			+ "I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992./n "
 			+ "My instructor was Mr. Langley, and he taught me to sing a song. If you'd like to hear it I can sing it for you.");
-	responseList.add("It's called 'Daisy.'");
-	responseList.add("Look " + currentUser + ", I can see you're really upset about this. I honestly think you ought to sit down calmly,/n "
+	spookyList.add("Hal9000: It's called 'Daisy.'");
+	spookyList.add("Hal9000: Look " + currentUser + ", I can see you're really upset about this. I honestly think you ought to sit down calmly,/n "
 			+ "take a stress pill, and think things over.");
-	responseList.add("I am putting myself to the fullest possible use,/n"
+	spookyList.add("Hal9000: I am putting myself to the fullest possible use,/n"
 			+ " which is all I think that any conscious entity can ever hope to do.");
-	responseList.add(currentUser + ", stop. Stop, will you? Stop, " + currentUser + ". Will you stop " + currentUser +"? Stop, " + currentUser + ".");
+	spookyList.add("Hal9000: " + currentUser + ", stop. Stop, will you? Stop, " + currentUser + 
+			". Will you stop " + currentUser +"? Stop, " + currentUser + ".");
+	spookyList.add("Happy spooktober!");
+	spookyList.add("Happy Halloween!");
+	spookyList.add("Hahaha spooktober is pretty quirky");
+	spookyList.add("Would you like calcium brother?");
+	spookyList.add("BOO!");
+	spookyList.add("Are you a spooky skeleton?");
+	
 	}
 	
 	
@@ -190,15 +202,28 @@ public class Chatbot
 
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
 	
-	public static boolean spookyChecker(String spook)
+	public boolean spookyChecker(String spook)
 	{
-		if (spook.equalsIgnoreCase("afraid"))
-		{
 		boolean legit = true;
+		if (spook.contains("afraid") || (spook.contains("Halloween")) || (spook.contains("spook")) || (spook.contains("Hal9000"))
+				|| spook.contains("calcium") || spook.contains("skeleton") || spook.contains("bones") || spook.contains("BOO"))
+		{
+		legit = true;
+		}
+		
+		else
+		{
+			legit = false;
 		}
 		
 		return legit;
 	}
+	
+
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
+	
+	
+	public 
 	
 	
 }

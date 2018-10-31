@@ -42,10 +42,16 @@ public class ChatController
 	
 	public String interactWithChatbot(String userInput)
 	{
-		int randomResponse = (int) (Math.random() * 16);
 		String output = "";
-		String userResponse = JOptionPane.showInputDialog(null, "Chatbot says: Hi whats up?");
+		if (userInput == null)
+		{
+			output = "It returned null";
+		}
 		
+		else
+		{
+			output = userInput;
+		}
 		
 		return output;
 	}
