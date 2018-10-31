@@ -68,4 +68,11 @@ public class ChatController
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
 	
 	
+	public String useChatbotCheckers()
+	{
+		String thing = "";
+		
+		return thing;
+	}
+	
 }
