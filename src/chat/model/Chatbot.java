@@ -1,8 +1,8 @@
 package chat.model;
 
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
+
 
 public class Chatbot
 {
@@ -90,10 +90,14 @@ public class Chatbot
 
 	
 	
-	public static String processText(String userText)
+	public String processText(String userText)
 	{
 		String userResponse = "You said: ";
 		String chatbotResponse = "Chatbot says: ";
+		
+		
+		int response = (int) (Math.random() * responseList.size());
+		
 		
 		if (userText == null)
 		{
@@ -112,6 +116,12 @@ public class Chatbot
 			userResponse += userText;
 			userResponse += "You said the special words";
 			
+		}
+		
+		else
+		{
+			userResponse += userText;
+			chatbotResponse += responseList.get(response);
 		}
 		
 		String answer = userResponse + System.lineSeparator() + chatbotResponse;
@@ -212,10 +222,12 @@ public class Chatbot
 	public boolean spookyChecker(String spook)
 	{
 		boolean legit = true;
-		if (spook.contains("afraid") || (spook.contains("Halloween")) || (spook.contains("spook")) || (spook.contains("Hal9000"))
-				|| spook.contains("calcium") || spook.contains("skeleton") || spook.contains("bones") || spook.contains("BOO"))
+		if (spook.contains("afraid") || (spook.contains("Halloween")) 
+				|| (spook.contains("spook")) || (spook.contains("Hal9000"))
+				|| spook.contains("calcium") || spook.contains("skeleton")
+				|| spook.contains("bones") || spook.contains("BOO"))
 		{
-		legit = true;
+			legit = true;
 		}
 		
 		else
@@ -230,7 +242,7 @@ public class Chatbot
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
 	
 	
-	public static boolean contentChecker(String special)
+	public boolean contentChecker(String special)
 	{
 		boolean contains = false;
 		
@@ -241,7 +253,12 @@ public class Chatbot
 				contains = true;
 			}
 			
-			else if (special.contains(" " + content + " "))
+			else if (special.endsWith(" " + content) || special.endsWith(" " + content + "."))
+			{
+				contains = true;
+			}
+			
+			else if (special.startsWith(content + " "))
 			{
 				contains = true;
 			}
@@ -256,6 +273,10 @@ public class Chatbot
 	}
 	
 	
+//_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
+	
+	
+
 }
 
 
