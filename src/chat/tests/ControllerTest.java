@@ -5,17 +5,20 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import chat.controller.ChatController;
+
 
 public class ControllerTest
 {
 
 	private ChatController testController;
+
+	
 	@Before
 	public void setUp() throws Exception
 	{
 		testController = new ChatController();
+		
 	}
 
 	@After

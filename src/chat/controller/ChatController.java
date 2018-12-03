@@ -1,18 +1,20 @@
 package chat.controller;
 
 import javax.swing.JOptionPane;
-
 import chat.model.Chatbot;
+import chat.view.ChatFrame;
 
 public class ChatController
 {
 	private Chatbot simpleBot;
+	private ChatFrame appFrame;
 
 	// _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
 
 	public ChatController()
 	{
 		simpleBot = new Chatbot();
+		appFrame = new ChatFrame(this);
 	}
 
 	// _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
