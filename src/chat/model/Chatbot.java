@@ -124,6 +124,7 @@ public class Chatbot
 			chatbotResponse += responseList.get(response);
 		}
 		
+		
 		String answer = userResponse + System.lineSeparator() + chatbotResponse;
 		
 		return answer;
