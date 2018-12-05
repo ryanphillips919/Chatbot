@@ -10,8 +10,11 @@ public class ChatPanel extends JPanel
 {
 	private ChatController appController;
 	private SpringLayout appLayout;
-	private JButton enterButton;
-	private JTextField inputField;
+	private JButton chatButton;
+	private JButton checkerButton;
+	private JButton loadButton;
+	private JButton saveButton;
+	private JTextField chatField;
 	private JTextArea chatArea;
 	private JScrollPane chatPane;
 	
@@ -20,33 +23,51 @@ public class ChatPanel extends JPanel
 		super();
 		
 		this.appController = appController;
-		enterButton = new JButton("Enter");
+		
+		chatButton = new JButton("Chat");
+		checkerButton = new JButton("Check Text");
+		loadButton = new JButton("load");
+		saveButton = new JButton("save");
+		
 		appLayout = new SpringLayout();
-		inputField = new JTextField();
-		chatArea = new JTextArea();
+		
+		chatField = new JTextField("Talk to the bot here", 50);
+		chatArea = new JTextArea("Chat Area", 20, 50);
 		chatPane = new JScrollPane();
 			
+		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
 		
 	}
 	
+	private void setupScrollPane()
+	{
+		
+	}
+	
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
-		this.add(enterButton);
+		this.add(chatButton);
+		this.add(loadButton);
+		this.add(saveButton);
+		this.add(checkerButton);
+		this.add(chatField);
+		this.add(chatArea);
+		this.add(chatPane);
 	}
 	
 	private void setupLayout()
 	{
-		appLayout.putConstraint(SpringLayout.SOUTH, enterButton, -30, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, enterButton, -30, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -30, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatButton, -30, SpringLayout.EAST, this);
 	}
 	
 	private void setupListeners()
 	{
-		enterButton.addActionListener(new ActionListener()
+		chatButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent mouseClick)
 			{
