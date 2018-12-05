@@ -21,12 +21,7 @@ public class ChatController
 
 	public void start()
 	{
-		String userInput = JOptionPane.showInputDialog(null, "Ya wanna chat? (type quit if you want to quit)");
-		while (!(userInput.contains("quit") || userInput.contains("Quit")))
-		{
-			userInput = JOptionPane.showInputDialog(simpleBot.processText(userInput));
-			useChatbotCheckers(userInput);
-		}
+		
 	}
 
 	// _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
@@ -34,16 +29,7 @@ public class ChatController
 	public String interactWithChatbot(String userInput)
 	{
 		String output = "";
-		if (userInput == null)
-		{
-			output = "It returned null";
-		}
-
-		else
-		{
-			output = userInput;
-		}
-
+		output += simpleBot.processText(userInput);
 		return output;
 	}
 

@@ -95,9 +95,7 @@ public class Chatbot
 		String userResponse = "You said: ";
 		String chatbotResponse = "Chatbot says: ";
 		
-		
 		int response = (int) (Math.random() * responseList.size());
-		
 		
 		if (userText == null)
 		{
@@ -114,8 +112,7 @@ public class Chatbot
 		else if(userText.contains(content))
 		{
 			userResponse += userText;
-			userResponse += "You said the special words";
-			
+			userResponse += "You said the special words";	
 		}
 		
 		else
@@ -125,11 +122,12 @@ public class Chatbot
 		}
 		
 		
-		String answer = userResponse + System.lineSeparator() + chatbotResponse;
+		String answer = userResponse + System.lineSeparator() + chatbotResponse + System.lineSeparator();
 		
 		return answer;
 		
 	}
+	
 	
 	
 //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
