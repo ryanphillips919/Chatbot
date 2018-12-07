@@ -18,6 +18,7 @@ public class ChatPanel extends JPanel
 	private JTextField chatField;
 	private JTextArea chatArea;
 	private JScrollPane chatPane;
+	private JButton resetButton;
 	
 	public ChatPanel(ChatController appController)
 	{
@@ -29,16 +30,17 @@ public class ChatPanel extends JPanel
 		checkerButton = new JButton("Check Text");
 		loadButton = new JButton("Load");
 		saveButton = new JButton("Save");
+		resetButton = new JButton("Clear");
 		
 		appLayout = new SpringLayout();
+		appLayout.putConstraint(SpringLayout.WEST, chatButton, 575, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, loadButton, 400, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, loadButton, -245, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.WEST, saveButton, 225, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, saveButton, -420, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.EAST, checkerButton, -595, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, -50, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.EAST, saveButton, -406, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.WEST, loadButton, 6, SpringLayout.EAST, saveButton);
-		appLayout.putConstraint(SpringLayout.EAST, loadButton, -6, SpringLayout.WEST, chatButton);
-		appLayout.putConstraint(SpringLayout.EAST, checkerButton, -587, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.WEST, saveButton, 6, SpringLayout.EAST, checkerButton);
 		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 50, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.WEST, chatButton, 589, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, chatButton, 500, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.NORTH, loadButton, 500, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 500, SpringLayout.NORTH, this);
@@ -86,6 +88,7 @@ public class ChatPanel extends JPanel
 		this.add(checkerButton);
 		this.add(chatField);
 		this.add(chatPane);
+		this.add(resetButton);
 	}
 	
 	private void setupLayout()
@@ -108,6 +111,10 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent mouseClick)
 			{
+				if (chatArea.getText().equals("ChatArea"))
+				{
+					chatArea.setText("");
+				}
 				String input = chatField.getText();
 				String output = "";
 				output = appController.interactWithChatbot(input);
@@ -116,6 +123,50 @@ public class ChatPanel extends JPanel
 				chatArea.setCaretPosition(chatArea.getDocument().getLength());
 			}
 		});
-	}
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent mouseClick)
+			{
 
+			}
+			
+		});
+		
+		saveButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent mouseClick) 
+			{
+				
+			}
+		});
+		
+		checkerButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent mouseClick)
+			{
+				
+			}
+		});
+		
+		resetButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent mouseClick) 
+			{
+				chatArea.setText("");
+			}
+		});
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
