@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Font;
 
 public class ChatPanel extends JPanel
 {
@@ -23,6 +24,7 @@ public class ChatPanel extends JPanel
 	public ChatPanel(ChatController appController)
 	{
 		super();
+		setForeground(Color.WHITE);
 		
 		this.appController = appController;
 		
@@ -31,8 +33,12 @@ public class ChatPanel extends JPanel
 		loadButton = new JButton("Load");
 		saveButton = new JButton("Save");
 		resetButton = new JButton("Clear");
+		resetButton.setForeground(Color.BLACK);
+		resetButton.setBackground(Color.WHITE);
 		
 		appLayout = new SpringLayout();
+		appLayout.putConstraint(SpringLayout.SOUTH, resetButton, -6, SpringLayout.NORTH, chatButton);
+		appLayout.putConstraint(SpringLayout.EAST, resetButton, 0, SpringLayout.EAST, chatButton);
 		appLayout.putConstraint(SpringLayout.WEST, chatButton, 575, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.WEST, loadButton, 400, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, loadButton, -245, SpringLayout.EAST, this);
@@ -51,8 +57,17 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -10, SpringLayout.SOUTH, this);
 		
 		chatArea = new JTextArea("Chat Area", 20, 25);
+		chatArea.setFont(new Font("Courier New", Font.PLAIN, 13));
+		chatArea.setForeground(Color.GREEN);
+		chatArea.setBackground(Color.BLACK);
 		chatField = new JTextField("Talk to the bot here", 50);
+		chatField.setFont(new Font("Courier New", Font.PLAIN, 13));
+		chatField.setForeground(Color.GREEN);
+		chatField.setBackground(Color.BLACK);
+		appLayout.putConstraint(SpringLayout.NORTH, resetButton, 0, SpringLayout.NORTH, chatField);
+		appLayout.putConstraint(SpringLayout.WEST, resetButton, 18, SpringLayout.EAST, chatField);
 		appLayout.putConstraint(SpringLayout.NORTH, chatField, 430, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatField, -175, SpringLayout.EAST, this);
 		
 		chatPane = new JScrollPane();
 		appLayout.putConstraint(SpringLayout.NORTH, chatPane, 20, SpringLayout.NORTH, this);
@@ -81,7 +96,7 @@ public class ChatPanel extends JPanel
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(800, 600));
-		this.setBackground(new Color(51, 102, 204));
+		this.setBackground(Color.BLACK);
 		this.add(chatButton);
 		this.add(loadButton);
 		this.add(saveButton);
@@ -95,7 +110,6 @@ public class ChatPanel extends JPanel
 	{
 		
 		appLayout.putConstraint(SpringLayout.WEST, chatField, 50, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, chatField, -50, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, chatField, -105, SpringLayout.SOUTH, this);
 		
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, 50, SpringLayout.WEST, this);
