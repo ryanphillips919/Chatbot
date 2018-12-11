@@ -57,7 +57,7 @@ public class ChatController
 		System.exit(0);
 	}
 	
-	public void hangleErrors(Exception error)
+	public void handleErrors(Exception error)
 	{
 		JOptionPane.showMessageDialog(appFrame, error.getMessage());
 	}

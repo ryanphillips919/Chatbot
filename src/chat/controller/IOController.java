@@ -18,6 +18,7 @@ public class IOController
 			String filename = path;
 			Calendar date = Calendar.getInstance();
 			filename += "/" + date.get(Calendar.MONTH) + " " + date.get(Calendar.DAY_OF_MONTH);
+			filename += date.get(Calendar.HOUR) + "-" + date.get(Calendar.MINUTE);
 			filename += " chatbot save.txt";
 
 			File saveFile = new File(filename);
@@ -41,6 +42,34 @@ public class IOController
 		{
 			app.handleErrors(genericError);
 		}
+	}
+	
+	public static String loadFile(ChatController app, String path)
+	{
+		String contents = "";
+		
+		try
+		{
+			File saveFile = new File(path);
+			Scanner fileScanner;
+			if(saveFile.exists())
+			{
+				fileScanner = new Scanner(saveFile);
+				while(saveFile.exists())
+				{
+					contents += fileScanner.nextLine() + "\n";
+				}
+			}
+		}
+		catch(IOException error)
+		{
+			app.handleErrors(error);
+		}
+		catch(Exception genericError)
+		{
+			app.handleErrors(genericError);
+		}
+		return contents;
 	}
 	
 

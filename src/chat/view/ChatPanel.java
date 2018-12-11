@@ -97,7 +97,7 @@ public class ChatPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
-//		this.setPreferredSize(new Dimension(800, 600));
+		this.setPreferredSize(new Dimension(800, 600));
 		this.setBackground(Color.BLACK);
 		this.add(chatButton);
 		this.add(loadButton);
@@ -153,9 +153,9 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent mouseClick) 
 			{
-				String chatText = chatEra.getText();
-				String path = "";
-				IOController.saveText(appControlelr, path, chatText);
+				String chatText = chatArea.getText();
+				String path = ".";
+				IOController.saveText(appController, path, chatText);
 				chatArea.setText("Chat saved!");
 			}
 		});

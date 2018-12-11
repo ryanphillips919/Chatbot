@@ -1,0 +1,14 @@
+You said: output
+Chatbot says: You're welcome
+You said: output
+Chatbot says: Hello! How are you?
+You said: output
+Chatbot says: Thank you, that is very kind
+You said: output
+Chatbot says: Excuse me?
+You said: output
+Chatbot says: You're welcome
+You said: output
+Chatbot says: Do you do crossfit
+You said: output
+Chatbot says: Hmmm, I don't know how to respond to that
