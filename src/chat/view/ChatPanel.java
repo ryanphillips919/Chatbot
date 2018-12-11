@@ -95,7 +95,7 @@ public class ChatPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
-		this.setPreferredSize(new Dimension(800, 600));
+//		this.setPreferredSize(new Dimension(800, 600));
 		this.setBackground(Color.BLACK);
 		this.add(chatButton);
 		this.add(loadButton);
