@@ -1,6 +1,8 @@
 package chat.view;
 
 import chat.controller.ChatController;
+import chat.controller.IOController;
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -151,7 +153,10 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent mouseClick) 
 			{
-				
+				String chatText = chatEra.getText();
+				String path = "";
+				IOController.saveText(appControlelr, path, chatText);
+				chatArea.setText("Chat saved!");
 			}
 		});
 		
