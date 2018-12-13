@@ -55,7 +55,7 @@ public class IOController
 			if(saveFile.exists())
 			{
 				fileScanner = new Scanner(saveFile);
-				while(saveFile.exists())
+				while(fileScanner.hasNext())
 				{
 					contents += fileScanner.nextLine() + "\n";
 				}
@@ -73,7 +73,10 @@ public class IOController
 	}
 	
 
-	
+	public static void saveTextWithResources(ChatController app, String path, String textToSave)
+	{
+		
+	}
 	
 	
 	
