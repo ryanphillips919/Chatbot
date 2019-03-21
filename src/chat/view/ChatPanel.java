@@ -130,8 +130,8 @@ public class ChatPanel extends JPanel
 				path = fileChooser.getSelectedFile().getAbsolutePath();
 			}
 		}
+		System.out.println(path);
 		return path;
-		
 	}
 	
 	private void setupLayout()
