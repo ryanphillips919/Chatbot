@@ -66,23 +66,15 @@ public class ChatPanel extends JPanel
 
 		chatArea = new JTextArea("Chat Area", 20, 25);
 		chatArea.setFont(new Font("Futura", Font.PLAIN, 16));
-		chatArea.setForeground(new Color(0, 0, 0));
-		chatArea.setBackground(new Color(255, 255, 240));
+
 		chatField = new JTextField("Talk to the bot here", 50);
-		appLayout.putConstraint(SpringLayout.WEST, chatField, 0, SpringLayout.WEST, buttonPanel);
-		appLayout.putConstraint(SpringLayout.SOUTH, chatField, -67, SpringLayout.NORTH, buttonPanel);
-		appLayout.putConstraint(SpringLayout.EAST, chatField, 0, SpringLayout.EAST, buttonPanel);
-		chatField.setFont(new Font("Futura", Font.PLAIN, 16));
+
 		chatField.setForeground(new Color(0, 0, 0));
 		chatField.setBackground(new Color(255, 255, 240));
 ;
 		
 		chatPane = new JScrollPane();
-		appLayout.putConstraint(SpringLayout.NORTH, chatField, 53, SpringLayout.SOUTH, chatPane);
-		appLayout.putConstraint(SpringLayout.EAST, chatPane, 0, SpringLayout.EAST, buttonPanel);
-		appLayout.putConstraint(SpringLayout.SOUTH, chatPane, 330, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, chatPane, 30, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, chatPane, 0, SpringLayout.WEST, buttonPanel);
+
 
 			
 		setupScrollPane();
@@ -153,6 +145,17 @@ public class ChatPanel extends JPanel
 	
 	private void setupLayout()
 	{
+		appLayout.putConstraint(SpringLayout.NORTH, chatField, 53, SpringLayout.SOUTH, chatPane);
+		appLayout.putConstraint(SpringLayout.EAST, chatPane, 0, SpringLayout.EAST, buttonPanel);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatPane, 330, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, chatPane, 30, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, chatPane, 0, SpringLayout.WEST, buttonPanel);
+		appLayout.putConstraint(SpringLayout.WEST, chatField, 0, SpringLayout.WEST, buttonPanel);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatField, -67, SpringLayout.NORTH, buttonPanel);
+		appLayout.putConstraint(SpringLayout.EAST, chatField, 0, SpringLayout.EAST, buttonPanel);
+		chatField.setFont(new Font("Futura", Font.PLAIN, 16));
+		chatArea.setForeground(new Color(0, 0, 0));
+		chatArea.setBackground(new Color(255, 255, 240));
 		
 		
 	}
