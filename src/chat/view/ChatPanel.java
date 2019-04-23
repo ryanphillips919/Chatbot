@@ -27,6 +27,13 @@ public class ChatPanel extends JPanel
 	
 	private JPanel buttonPanel;
 	
+	private ImageIcon loadIcon;
+	private ImageIcon saveIcon;
+	private ImageIcon twitterIcon;
+	private ImageIcon chatIcon;
+	private ImageIcon checkIcon;
+	private ImageIcon searchIcon;
+	
 	public ChatPanel(ChatController appController)
 	{
 		super();
@@ -34,39 +41,66 @@ public class ChatPanel extends JPanel
 		
 		this.appController = appController;
 		
-		chatButton = new JButton("Chat");
-		checkerButton = new JButton("Check Text");
-		loadButton = new JButton("Load");
-		saveButton = new JButton("Save");
-		resetButton = new JButton("Clear");
-		resetButton.setForeground(Color.BLACK);
-		resetButton.setBackground(Color.WHITE);
+		
+		saveIcon = new ImageIcon(getClass().getResource("/chat/view/images/save.png"));
+		loadIcon = new ImageIcon(getClass().getResource("/chat/view/images/load.png"));
+		twitterIcon = new ImageIcon(getClass().getResource("/chat/view/images/tweet.png"));
+		chatIcon = new ImageIcon(getClass().getResource("/chat/view/images/chat.png"));
+		searchIcon = new ImageIcon(getClass().getResource("/chat/view/images/searchTwitter.png"));
+		checkIcon = new ImageIcon(getClass().getResource("/chat/view/images/search.png"));
+		
 		
 		appLayout = new SpringLayout();
 		
-		tweetButton = new JButton("Send tweet");
-		searchTwitterButton = new JButton("Search Twitter");
+		chatButton = new JButton("Chat", chatIcon);
+		checkerButton = new JButton("Check Text", checkIcon);
+		loadButton = new JButton("Load", loadIcon);
+		saveButton = new JButton("Save", saveIcon);
+		resetButton = new JButton("Clear");
+		tweetButton = new JButton("Send tweet", twitterIcon);
+		searchTwitterButton = new JButton("Search Twitter", searchIcon);
 		
 		buttonPanel = new JPanel(new GridLayout(1, 0));
+		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 548, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, buttonPanel, -74, SpringLayout.EAST, this);
 
 		chatArea = new JTextArea("Chat Area", 20, 25);
-		chatArea.setFont(new Font("Courier New", Font.PLAIN, 13));
-		chatArea.setForeground(Color.GREEN);
-		chatArea.setBackground(Color.BLACK);
+		chatArea.setFont(new Font("Futura", Font.PLAIN, 16));
+		chatArea.setForeground(new Color(0, 0, 0));
+		chatArea.setBackground(new Color(255, 255, 240));
 		chatField = new JTextField("Talk to the bot here", 50);
-		chatField.setFont(new Font("Courier New", Font.PLAIN, 13));
-		chatField.setForeground(Color.GREEN);
-		chatField.setBackground(Color.BLACK);
+		appLayout.putConstraint(SpringLayout.WEST, chatField, 0, SpringLayout.WEST, buttonPanel);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatField, -67, SpringLayout.NORTH, buttonPanel);
+		appLayout.putConstraint(SpringLayout.EAST, chatField, 0, SpringLayout.EAST, buttonPanel);
+		chatField.setFont(new Font("Futura", Font.PLAIN, 16));
+		chatField.setForeground(new Color(0, 0, 0));
+		chatField.setBackground(new Color(255, 255, 240));
 ;
 		
 		chatPane = new JScrollPane();
+		appLayout.putConstraint(SpringLayout.NORTH, chatField, 53, SpringLayout.SOUTH, chatPane);
+		appLayout.putConstraint(SpringLayout.EAST, chatPane, 0, SpringLayout.EAST, buttonPanel);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatPane, 330, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, chatPane, 30, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, chatPane, 0, SpringLayout.WEST, buttonPanel);
 
 			
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+		setupButtons();
 		
+	}
+	
+	private void setupButtons()
+	{
+		buttonPanel.add(saveButton);
+		buttonPanel.add(loadButton);
+		buttonPanel.add(chatButton);
+		buttonPanel.add(checkerButton);
+		buttonPanel.add(tweetButton);
+		buttonPanel.add(searchTwitterButton);
 	}
 	
 	private void setupScrollPane()
@@ -83,7 +117,10 @@ public class ChatPanel extends JPanel
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(1024, 768));
-		this.setBackground(Color.BLACK);
+		buttonPanel.setPreferredSize(new Dimension(900, 150));
+		buttonPanel.setBackground(Color.DARK_GRAY);
+		this.setBackground(new Color(30, 144, 255));
+		this.add(buttonPanel);
 		this.add(chatField);
 		this.add(chatPane);
 	}
