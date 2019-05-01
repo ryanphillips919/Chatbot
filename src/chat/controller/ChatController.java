@@ -24,7 +24,12 @@ public class ChatController
 
 	public void start()
 	{
-		
+		String one = null;
+		String two = "two";
+		if (two.equals(one));
+		{
+			System.out.println(two);
+		}
 	}
 
 	// _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\\
