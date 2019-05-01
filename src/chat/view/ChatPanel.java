@@ -216,6 +216,15 @@ public class ChatPanel extends JPanel
 				chatArea.setText("");
 			}
 		});
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String textToTweet = chatField.getText().trim();
+				appController.tweet(textToTweet);
+			}
+		});
 	}
 	
 	

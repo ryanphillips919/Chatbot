@@ -28,7 +28,8 @@ public class ChatTwitter
 	private List<String> tweetedWords;
 	private long totalWordCount;
 	private HashMap<String, Integer> wordsAndCount;
-
+	
+	
 	public ChatTwitter(ChatController app)
 	{
 		this.app = app;
@@ -44,10 +45,12 @@ public class ChatTwitter
 		try
 		{
 			chatTwitter.updateStatus(textToTweet + " @ChatbotCTEC");
-		} catch (TwitterException tweetError)
+		} 
+		catch (TwitterException tweetError)
 		{
 			app.handleErrors(tweetError);
-		} catch (Exception otherError)
+		} 
+		catch (Exception otherError)
 		{
 			app.handleErrors(otherError);
 		}
@@ -119,7 +122,7 @@ public class ChatTwitter
 				tweetedWords.remove(index);
 			}
 		}
-	}
+	} 
 
 	private String[] createIgnoredWordArray()
 	{

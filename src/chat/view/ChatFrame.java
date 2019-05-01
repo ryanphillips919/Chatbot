@@ -24,6 +24,7 @@ public class ChatFrame extends JFrame
 		this.setTitle("Chat GUI");
 		this.setResizable(true);
 		this.setVisible(true);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 	}
 }
 
