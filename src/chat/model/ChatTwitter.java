@@ -76,7 +76,8 @@ public class ChatTwitter
 						lastID = current.getId();
 					}
 				}
-			} catch (TwitterException searchTweetError)
+			} 
+			catch (TwitterException searchTweetError)
 			{
 				app.handleErrors(searchTweetError);
 			}
