@@ -64,16 +64,22 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 548, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, buttonPanel, -74, SpringLayout.EAST, this);
 
-		chatArea = new JTextArea("Chat Area", 20, 25);
-		chatArea.setFont(new Font("Futura", Font.PLAIN, 16));
+		chatArea = new JTextArea("Chat Area");
+		chatArea.setRows(20);
+		chatArea.setColumns(50);
 
 		chatField = new JTextField("Talk to the bot here", 50);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatField, -67, SpringLayout.NORTH, buttonPanel);
 
 		chatField.setForeground(new Color(0, 0, 0));
 		chatField.setBackground(new Color(255, 255, 240));
 ;
 		
 		chatPane = new JScrollPane();
+		appLayout.putConstraint(SpringLayout.NORTH, chatField, 56, SpringLayout.SOUTH, chatPane);
+		appLayout.putConstraint(SpringLayout.EAST, chatPane, 900, SpringLayout.WEST, buttonPanel);
+		appLayout.putConstraint(SpringLayout.NORTH, chatPane, 10, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, chatPane, 0, SpringLayout.WEST, buttonPanel);
 
 
 			
@@ -101,7 +107,7 @@ public class ChatPanel extends JPanel
 		chatArea.setLineWrap(true);
 		chatArea.setWrapStyleWord(true);
 		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		chatPane.setColumnHeaderView(chatArea);
 	}
 	
@@ -145,19 +151,12 @@ public class ChatPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		appLayout.putConstraint(SpringLayout.NORTH, chatField, 53, SpringLayout.SOUTH, chatPane);
-		appLayout.putConstraint(SpringLayout.EAST, chatPane, 0, SpringLayout.EAST, buttonPanel);
-		appLayout.putConstraint(SpringLayout.SOUTH, chatPane, 330, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, chatPane, 30, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, chatPane, 0, SpringLayout.WEST, buttonPanel);
 		appLayout.putConstraint(SpringLayout.WEST, chatField, 0, SpringLayout.WEST, buttonPanel);
-		appLayout.putConstraint(SpringLayout.SOUTH, chatField, -67, SpringLayout.NORTH, buttonPanel);
 		appLayout.putConstraint(SpringLayout.EAST, chatField, 0, SpringLayout.EAST, buttonPanel);
 		chatField.setFont(new Font("Futura", Font.PLAIN, 16));
 		chatArea.setForeground(new Color(0, 0, 0));
 		chatArea.setBackground(new Color(255, 255, 240));
-		
-		
+
 	}
 	
 	private void setupListeners()
